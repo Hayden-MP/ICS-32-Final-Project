@@ -255,6 +255,8 @@ class Profile:
                     msg = DirectMessage(message=message["message"], timestamp=message["timestamp"],
                                         recipient=message["recipient"], frm=message["frm"])
                     self._messages.append(msg)
+                for user in obj['_users']:
+                    self._users.append(user)
                 f.close()
             except Exception as ex:
                 raise DsuProfileError(ex)

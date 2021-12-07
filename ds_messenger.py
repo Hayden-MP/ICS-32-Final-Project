@@ -58,39 +58,39 @@ class DirectMessage(dict):
         return self._timestamp
 
 
-class DirectMessageOld:
-    """The Direct Message class stores all relevant information for a message in the following instance variables:
-
-    - self.recipient: stores who is to receive the message of the message
-    - self.message: stores the message itself
-    - self.timestamp: stores the time that the message was sent
-    - self.frm: stores who the message was sent by
-
-    """
-
-    def __init__(self):
-        self.recipient = None
-        self.message = None
-        self.timestamp = None
-        self.frm = None
-
-    def fill_info_received(self, messagedict: dict, myusername):
-        """
-        Takes information in from outside messages and assigns it to the proper instance variables.
-        """
-        self.recipient = myusername
-        self.message = messagedict["message"]
-        self.frm = messagedict["from"]
-        self.timestamp = messagedict["timestamp"]
-
-    def fill_info_sent(self, messagedict: dict, myusername):
-        """
-        Takes information in for messages that are being sent and assigns it to the proper instance variables.
-        """
-        self.recipient = messagedict["recipient"]
-        self.message = messagedict["message"]
-        self.frm = myusername
-        self.timestamp = messagedict["timestamp"]
+# class DirectMessageOld:
+#     """The Direct Message class stores all relevant information for a message in the following instance variables:
+#
+#     - self.recipient: stores who is to receive the message of the message
+#     - self.message: stores the message itself
+#     - self.timestamp: stores the time that the message was sent
+#     - self.frm: stores who the message was sent by
+#
+#     """
+#
+#     def __init__(self):
+#         self.recipient = None
+#         self.message = None
+#         self.timestamp = None
+#         self.frm = None
+#
+#     def fill_info_received(self, messagedict: dict, myusername):
+#         """
+#         Takes information in from outside messages and assigns it to the proper instance variables.
+#         """
+#         self.recipient = myusername
+#         self.message = messagedict["message"]
+#         self.frm = messagedict["from"]
+#         self.timestamp = messagedict["timestamp"]
+#
+#     def fill_info_sent(self, messagedict: dict, myusername):
+#         """
+#         Takes information in for messages that are being sent and assigns it to the proper instance variables.
+#         """
+#         self.recipient = messagedict["recipient"]
+#         self.message = messagedict["message"]
+#         self.frm = myusername
+#         self.timestamp = messagedict["timestamp"]
 
 
 class DirectMessenger:

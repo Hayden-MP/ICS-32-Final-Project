@@ -11,16 +11,16 @@ The ds_protocol module contains functions that support communication with the DS
 """
 
 
-def get_sendmsg(token, message, recipient):
+def get_sendmsg(token, message, recipient)->str:
     """Using the user token and message, returns a request following the correct protocol to communicate with the DSP
     server and request to send a direct message."""
     sendmsg = f'{{"token":"{token}", "directmessage": {{"entry": "{message}","recipient":"{recipient}", "timestamp": "{time.time()}"}}}}'
-    # {"token":"{token}", "directmessage": {"entry": "Hello World!","recipient":"ohhimark", "timestamp":
+    #{"token":"{token}", "directmessage": {"entry": "Hello World!","recipient":"ohhimark", "timestamp":
     # "1603167689.3928561"}}
     return sendmsg
 
 
-def get_msg_dict(message, recipient):
+def get_msg_dict(message, recipient)->dict:
     """Using the message, recipient, and user's username, it creates a dictionary with the relevant information stored
     in the DirectMessage class and returns it."""
     sendmsg = {"recipient": recipient, "message": message, "timestamp": time.time()}
@@ -28,22 +28,22 @@ def get_msg_dict(message, recipient):
     return sendmsg
 
 
-def get_rtrmsg(token, taip):
+def get_rtrmsg(token, taip)->str:
     """Using the user token and type, returns a request following the correct protocol to communicate with the DSP
         server and request to retrieve messages sent to the user"""
     rtrmsg = f'{{"token":"{token}", "directmessage": "{taip}"}}'
-    #            {"token":"{token}", "directmessage": "new"}
+    #{"token":"{token}", "directmessage": "new"}
     return rtrmsg
 
 
-def get_joinmsg(username, password):
+def get_joinmsg(username, password)->str:
     """Using the username and password, returns a request following the correct protocol to communicate with the DSP
         server and request join and exchange data."""
     joinmsg = f'{{"join": {{"username": "{username}","password": "{password}","token":""}}}}'
     return joinmsg
 
 
-def load_srvmsg(srv_msg):
+def load_srvmsg(srv_msg)->dict:
     """Loads the server's response from json into a python dictionary and returns it."""
     return json.loads(srv_msg)
 
@@ -101,7 +101,7 @@ def isolatepost(post):
     return post["entry"]
 
 
-def get_biomsg(token, bio):
+def get_biomsg(token, bio)->str:
     """Using the user token and bio, returns a request following the correct protocol to communicate with the DSP
         server and request to add a new bio for the user, returning the server's response."""
     biomsg = f'{{"token":"{token}", "bio": {{"entry": "{bio}","timestamp": "{time.time()}"}}}}'
