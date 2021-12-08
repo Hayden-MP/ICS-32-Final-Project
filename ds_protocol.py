@@ -54,15 +54,15 @@ def get_token(msg_dict):
 
 
 def print_rMessage(msg_dict):
-    """Extracts the response message from the dictionary of the server's response to the request and returns it."""
-    try:
+    #"""Extracts the response message from the dictionary of the server's response to the request and returns it."""
+    #try:
         # for responses to join and send requests.
-        print(msg_dict["response"]["message"])
-    except KeyError:
-        # for responses to retrieve requests
-        if msg_dict["response"]["type"] == "ok":
-            print("Messages Successfully Retrieved.")
-
+    #    print(msg_dict["response"]["message"])
+    #except KeyError:
+    #    # for responses to retrieve requests
+    #    if msg_dict["response"]["type"] == "ok":
+    #        print("Messages Successfully Retrieved.")
+    pass
 
 def get_responseType(msg_dict):
     """Extracts the response type from the dictionary of the server's response to the request and returns it."""
